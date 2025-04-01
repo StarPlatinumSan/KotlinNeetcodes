@@ -32,3 +32,26 @@ class anagram {
         return countS == countT
     }
 }
+
+/* Given an array of integers nums and an integer target, return the indices i and j such that nums[i] + nums[j] == target and i != j.
+
+You may assume that every input has exactly one pair of indices i and j that satisfy the condition.
+
+Return the answer with the smaller index first. */
+
+/* Time Complexity : O(n) */
+
+class twoSum {
+    fun twoSum(nums: IntArray, target: Int): IntArray {
+        val prevMap = HashMap<Int, Int>()
+
+        for ((i, n) in nums.withIndex()) {
+            val diff = target - n
+            if (prevMap.containsKey(diff)) {
+                return intArrayOf(prevMap[diff]!!, i)
+            }
+            prevMap[n] = i
+        }
+        return intArrayOf()
+    }
+}
